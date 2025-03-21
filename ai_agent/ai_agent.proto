@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package aiagent;
+
+
+service AiAgentService {
+  rpc ClassifyConversation (ClassificationRequest) returns (ClassificationResponse);
+  rpc EvolveConversation (EvolutionRequest) returns (EvolutionResponse);
+}
+
+
+
+message ClassificationRequest {
+  string conversation = 1;
+}
+
+message ClassificationResponse {
+  string result_json = 1;
+}
+
+message EvolutionRequest {
+  string conversation = 1;
+  string json = 2; //
+}
+
+message EvolutionResponse {
+  string evolution_result = 1;
+}
